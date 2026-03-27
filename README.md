@@ -72,6 +72,33 @@ create policy "Enable update/delete for admins"
 on public.articles for all 
 to anon 
 using (true);
+
+-- 1. Allow anyone to see ALL articles (Pending + Approved)
+-- Use this if you want the simplest fix for your passcode-protected page
+create policy "Allow anon to read all articles"
+on public.articles
+for select
+to anon
+using (true);
+
+-- 2. Allow anyone to delete/update articles
+-- (Required for your Approve/Reject buttons to work)
+create policy "Allow anon to update articles"
+on public.articles
+for update
+to anon
+using (true);
+
+create policy "Allow anon to delete articles"
+on public.articles
+for delete
+to anon
+using (true);
+
+-- Allow anyone to read articles by ID even if not approved yet
+alter policy "Allow anonymous reads of approved articles" 
+on public.articles 
+using (true);
 ```
 
 ---
