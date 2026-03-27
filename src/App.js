@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage';
 import MagazinePage from './pages/MagazinePage';
 import SubmitPage from './pages/SubmitPage';
 import AdminPage from './pages/AdminPage';
+import ArticlePage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/read"     element={<MagazinePage />} />
         <Route path="/submit"   element={<SubmitPage />} />
         <Route path="/admin"    element={<AdminPage />} />
+        <Route path="/article/:id" element={<ArticlePage />} />
       </Routes>
       <Footer />
     </Router>
