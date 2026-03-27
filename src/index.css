@@ -1,0 +1,148 @@
+/* ─── iFell Global Design System ─── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Core Palette */
+  --bg:            #0C0508;
+  --surface:       #160B0F;
+  --surface-2:     #221018;
+  --border:        #3D1F28;
+  --border-light:  #5C2E3A;
+
+  /* Brand */
+  --rose:          #E8294B;
+  --rose-hover:    #FF3D5F;
+  --rose-muted:    #9B1D32;
+  --blush:         #FFB3C6;
+  --blush-dim:     #D4788A;
+  --petal:         #FFF0F3;
+
+  /* Text */
+  --text:          #F5E6E8;
+  --text-muted:    #A08C90;
+  --text-faint:    #5E4548;
+
+  /* Fonts */
+  --font-display:  'Cormorant Garamond', Georgia, serif;
+  --font-body:     'DM Sans', system-ui, sans-serif;
+
+  /* Spacing */
+  --radius:        6px;
+  --radius-lg:     14px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+
+  /* Subtle grain texture */
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(232,41,75,0.08) 0%, transparent 60%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+img { max-width: 100%; }
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--rose-muted); }
+
+/* ─── Shared utility classes ─── */
+.page-wrapper {
+  min-height: 100vh;
+  padding-top: 72px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+  background: var(--rose-hover);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover {
+  border-color: var(--rose-muted);
+  color: var(--blush);
+}
+
+/* ─── Category pill ─── */
+.category-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  color: var(--blush-dim);
+  background: rgba(232,41,75,0.06);
+}
+
+/* ─── Page fade-in ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.55s ease forwards;
+}
