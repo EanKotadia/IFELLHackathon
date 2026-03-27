@@ -2,9 +2,7 @@
 
 **A 48-hour hackathon celebrating love in every form.**
 
-iFell is a platform where anyone can submit and read real stories of love — from the magic of a first love to the growth found in self-love. 
-
----
+iFell is a platform where anyone can submit and read real stories of love — from the magic of a first love to the growth found in self-love. Created by Ean and Vihaan, two 11th-grade developers, this project was built in just 48 hours for a hackathon to celebrate the raw, honest, and beautiful experiences that define us.
 
 ## Setup
 
@@ -101,7 +99,7 @@ using (true);
 * [React.js](https://reactjs.org/)
 * [Supabase](https://supabase.com/) (Database & Auth)
 * [React Router](https://reactrouter.com/) (Navigation)
-* CSS3 (Custom Glassmorphism UI)
+* CSS
 
 ---
 **Made with ❤️ for the iFell Hackathon 2026**
