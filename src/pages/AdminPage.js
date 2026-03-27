@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { supabase } from '../supabaseClient';
 import './AdminPage.css';
 
-const PASSCODE = process.env.REACT_APP_PASSCODE || 'ifell2025';
+const PASSCODE = process.env.REACT_APP_PASSCODE;
 
 export default function AdminPage() {
   const [authed, setAuthed]       = useState(false);

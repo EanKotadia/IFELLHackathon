@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
+import QRCode from "react-qr-code";
 
 const CATEGORIES = [
   { key: 'first-love',    label: 'First Love',    emoji: '🌹', desc: 'The story you never forgot.' },
@@ -44,7 +45,7 @@ export default function LandingPage() {
         </div>
 
         <div className="hero__content" ref={heroRef}>
-          <span className="hero__badge">♥ Hackathon 2025</span>
+          <span className="hero__badge">♥ Hackathon 2026</span>
           <h1 className="hero__title">
             Every love story<br />
             <em>deserves to be told.</em>
@@ -140,9 +141,9 @@ export default function LandingPage() {
                 rel="noopener noreferrer"
                 className="store-btn"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                  <path d="M3.18 23.76a2 2 0 0 0 2.06-.19l11.58-6.69-2.89-2.89L3.18 23.76zm16.1-10.53L16.66 11.5l-2.72 2.72 2.62 2.62c.63.63 1.65.63 2.28 0l.44-.44a1.61 1.61 0 0 0 0-2.17zM3.04.24a2 2 0 0 0-.54 1.4v20.72c0 .54.2 1.03.54 1.4l.07.07 11.6-11.6v-.27L3.11.17l-.07.07zm10.51 11.1L3.04.24l10.51 11.1z"/>
-                </svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                      <path d="M12.1 21.05l-.1-.1-.11.1C7.14 16.74 4 13.86 4 10.5 4 7.97 5.97 6 8.5 6c1.54 0 3.04.81 3.87 2.09h.26C13.46 6.81 14.96 6 16.5 6 19.03 6 21 7.97 21 10.5c0 3.36-3.14 6.24-7.9 10.55z"/>
+                  </svg>
                 <span>
                   <small>GET IT ON</small>
                   Google Play
@@ -151,57 +152,20 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="download__qr-wrap">
-            <div className="download__qr-card">
-              {/* Programmatic QR pattern — purely decorative SVG grid */}
-              <svg
-                className="qr-svg"
-                viewBox="0 0 200 200"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-label="Scan to download iFell"
-              >
-                {/* Background */}
-                <rect width="200" height="200" fill="#160B0F" rx="12"/>
-
-                {/* Top-left finder */}
-                <rect x="16" y="16" width="52" height="52" rx="6" fill="none" stroke="#E8294B" strokeWidth="6"/>
-                <rect x="28" y="28" width="28" height="28" rx="3" fill="#E8294B"/>
-
-                {/* Top-right finder */}
-                <rect x="132" y="16" width="52" height="52" rx="6" fill="none" stroke="#E8294B" strokeWidth="6"/>
-                <rect x="144" y="28" width="28" height="28" rx="3" fill="#E8294B"/>
-
-                {/* Bottom-left finder */}
-                <rect x="16" y="132" width="52" height="52" rx="6" fill="none" stroke="#E8294B" strokeWidth="6"/>
-                <rect x="28" y="144" width="28" height="28" rx="3" fill="#E8294B"/>
-
-                {/* Data dots — random-ish pattern */}
-                {[
-                  [84,16],[92,16],[100,16],[108,16],[84,24],[100,24],[108,24],
-                  [84,32],[92,32],[84,40],[100,40],[84,48],[92,48],[108,48],
-                  [84,56],[100,56],[108,56],[84,64],[92,64],[100,64],
-                  [16,84],[32,84],[48,84],[56,84],[84,84],[92,84],[108,84],[116,84],[132,84],[148,84],[164,84],[180,84],
-                  [16,92],[40,92],[56,92],[84,92],[100,92],[116,92],[132,92],[156,92],[172,92],
-                  [16,100],[24,100],[40,100],[48,100],[60,100],[76,100],[92,100],[108,100],[124,100],[148,100],[164,100],[180,100],
-                  [16,108],[32,108],[56,108],[72,108],[88,108],[108,108],[132,108],[140,108],[164,108],
-                  [16,116],[24,116],[40,116],[56,116],[84,116],[100,116],[116,116],[140,116],[148,116],[164,116],[180,116],
-                  [100,132],[116,132],[132,132],[148,132],[164,132],[180,132],
-                  [100,140],[124,140],[148,140],[164,140],
-                  [100,148],[108,148],[124,148],[132,148],[148,148],[180,148],
-                  [100,156],[116,156],[140,156],[156,156],[164,156],
-                  [100,164],[108,164],[124,164],[132,164],[148,164],[164,164],[180,164],
-                  [100,172],[116,172],[132,172],[148,172],[164,172],[180,172],
-                  [100,180],[108,180],[116,180],[140,180],[156,180],[172,180],
-                ].map(([x,y], i) => (
-                  <rect key={i} x={x} y={y} width="8" height="8" rx="1.5" fill="#E8294B" opacity="0.85"/>
-                ))}
-
-                {/* iFell text in centre */}
-                <text x="100" y="106" textAnchor="middle" fill="#FFB3C6" fontSize="13" fontFamily="serif" fontStyle="italic" fontWeight="600">iFell</text>
-              </svg>
-              <p className="download__qr-label">Scan to download</p>
+            <div className="download__qr-wrap">
+                <div className="download__qr-card">
+                    <div className="qr-real">
+                        <QRCode
+                            value="https://your-deployed-ifell-link.com"
+                            size={180}
+                            bgColor="#FFFFFF"
+                            fgColor="#FF5C8A"
+                            level="H"
+                        />
+                    </div>
+                    <p className="download__qr-label">Scan to open iFell</p>
+                </div>
             </div>
-          </div>
         </div>
       </section>
 
